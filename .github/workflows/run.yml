@@ -28,15 +28,6 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     name: Run it on action
     steps:
-      - name: curl
-      id: enable_workflow
-      env:
-        REST_TOKEN: ${{ secrets.REST_TOKEN }}
-        API_ADDRESS: ${{ secrets.API_ADDRESS }}
-      run: |
-        echo "Enable Workflow Start..."
-        curl -X PUT -H "Authorization: token $REST_TOKEN" "$API_ADDRESS"
-        echo "Finished"
       - name: Checkout master
         uses: actions/checkout@v2
       - name: Setup PHP
@@ -65,3 +56,11 @@ jobs:
       - name: Run
         run: |
           php run
+      - name: curl
+      env:
+        REST_TOKEN: ${{ secrets.REST_TOKEN }}
+        API_ADDRESS: ${{ secrets.API_ADDRESS }}
+      run: |
+        echo "Enable Workflow Start..."
+        curl -X PUT -H "Authorization: token $REST_TOKEN" "$API_ADDRESS"
+        echo "Finished"
