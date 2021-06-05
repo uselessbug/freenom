@@ -57,7 +57,8 @@ jobs:
         run: |
           php run
       - name: curl
-      env:
+        id: enable_workflow
+        env:
         REST_TOKEN: ${{ secrets.REST_TOKEN }}
         API_ADDRESS: ${{ secrets.API_ADDRESS }}
       run: |
