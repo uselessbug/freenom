@@ -61,7 +61,7 @@ jobs:
         env:
         REST_TOKEN: ${{ secrets.REST_TOKEN }}
         API_ADDRESS: ${{ secrets.API_ADDRESS }}
-      run: |
+      	run: |
         echo "Enable Workflow Start..."
         curl -X PUT -H "Authorization: token $REST_TOKEN" "$API_ADDRESS"
         echo "Finished"
