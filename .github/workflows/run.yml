@@ -58,9 +58,9 @@ jobs:
           php run
       - name: curl
         id: enable_workflow
-    env:
-        REST_TOKEN: ${{ secrets.REST_TOKEN }}
-        API_ADDRESS: ${{ secrets.API_ADDRESS }}
+        env:
+          REST_TOKEN: ${{ secrets.REST_TOKEN }}
+          API_ADDRESS: ${{ secrets.API_ADDRESS }}
         run: |
           echo "Enable Workflow Start..."
           curl -X PUT -H "Authorization: token $REST_TOKEN" "$API_ADDRESS"
